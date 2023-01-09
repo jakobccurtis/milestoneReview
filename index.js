@@ -5,7 +5,7 @@ body.appendChild(listingsDiv)
 
 
 class Listings {
-    constructor(){
+    constructor() {
         this.listArr = [];
     }
 
@@ -24,7 +24,7 @@ class Listings {
         // create entry form
         // add event listener on submit button
         const ourList = this.listArr
-        ourList.map((obj)=>{
+        ourList.map((obj) => {
             // const listingEntry = document.createElement('div')
             // listingEntry.classList.add('listing_entry')
             // listingEntry.append(obj)
@@ -33,7 +33,7 @@ class Listings {
             userWrapper.classList.add('user_entry')
             listingsDiv.appendChild(userWrapper)
             // listingsDiv.append(userWrapper)
-    
+
             const addressLi = document.createElement('li')
             addressLi.classList.add('address')
             userWrapper.appendChild(addressLi)
@@ -50,11 +50,8 @@ class Listings {
             stateLi.classList.add('state')
             userWrapper.appendChild(stateLi)
             stateLi.innerHTML = obj.state
-    
-
         })
 
-        // return listingsRender
     }
 }
 
@@ -62,10 +59,10 @@ class Listings {
 
 class UserEntry {
     constructor(address, propType, city, state) {
-        this.address = address, 
-        this.propType = propType, 
-        this.city = city, 
-        this.state = state
+        this.address = address,
+            this.propType = propType,
+            this.city = city,
+            this.state = state
     }
 
     render() {
@@ -86,27 +83,39 @@ class UserEntry {
     }
 }
 
-const button = document.querySelector("#submitButton");
-button.addEventListener('click', function(e) {
-    e.preventDefault()
-    const newEntry = new UserEntry(addressInput.value, propTypeInput.value, cityInput.value, stateInput.value)
-    const addressInput = document.querySelector('#addressInput')
-    const propTypeInput = document.querySelector('#propTypeInput')
-    const cityInput = document.querySelector('#cityInput')
-    const stateInput = document.querySelector('#stateInput')
-    masterListing.addListing(newEntry)
-})
-
 
 
 const testUser = new UserEntry("123 Street Lane", "Apt", "Brooklyn", "New York");
 
-console.log(testUser)
 
-const masterListing = new Listings
-masterListing.addListing(testUser)
-console.log(masterListing)
-masterListing.render()
+const button = document.querySelector("#submitButton");
+
+const masterListing = new Listings()
+
+button.addEventListener('click', function (e) {
+    e.preventDefault()
+    const addressInput = document.querySelector('#addressInput')
+    const propTypeInput = document.querySelector('#propTypeInput')
+    const cityInput = document.querySelector('#cityInput')
+    const stateInput = document.querySelector('#stateInput')
+
+    const newEntry = new UserEntry(addressInput.value, propTypeInput.value, cityInput.value, stateInput.value)
+    const newList = new Listings()
+
+    newList.addListing(newEntry)
+    newList.render()
+
+    // console.log(newEntry)
+    // console.log(newList)
+})
+
+
+
+
+
+// masterListing.addListing(testUser)
+// console.log(masterListing)
+
 
 
 // event listerner. submit button. define a new entry.
