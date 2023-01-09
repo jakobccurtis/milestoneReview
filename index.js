@@ -30,19 +30,24 @@ class Listings {
             // listingEntry.append(obj)
             // listingsDiv.appendChild(listingEntry)
             const userWrapper = document.createElement('ul')
+            userWrapper.classList.add('user_entry')
             listingsDiv.appendChild(userWrapper)
             // listingsDiv.append(userWrapper)
     
             const addressLi = document.createElement('li')
+            addressLi.classList.add('address')
             userWrapper.appendChild(addressLi)
             addressLi.innerHTML = obj.address
             const propTypeLi = document.createElement('li')
+            propTypeLi.classList.add('propType')
             userWrapper.appendChild(propTypeLi)
             propTypeLi.innerHTML = obj.propType
             const cityLi = document.createElement('li')
+            cityLi.classList.add('city')
             userWrapper.appendChild(cityLi)
             cityLi.innerHTML = obj.city
             const stateLi = document.createElement('li')
+            stateLi.classList.add('state')
             userWrapper.appendChild(stateLi)
             stateLi.innerHTML = obj.state
     
