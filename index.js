@@ -25,14 +25,10 @@ class Listings {
         // add event listener on submit button
         const ourList = this.listArr
         ourList.map((obj) => {
-            // const listingEntry = document.createElement('div')
-            // listingEntry.classList.add('listing_entry')
-            // listingEntry.append(obj)
-            // listingsDiv.appendChild(listingEntry)
+
             const userWrapper = document.createElement('ul')
             userWrapper.classList.add('user_entry')
             listingsDiv.appendChild(userWrapper)
-            // listingsDiv.append(userWrapper)
 
             const addressLi = document.createElement('li')
             addressLi.classList.add('address')
@@ -50,8 +46,12 @@ class Listings {
             stateLi.classList.add('state')
             userWrapper.appendChild(stateLi)
             stateLi.innerHTML = obj.state
-        })
 
+            const removeBtn = document.createElement('button')
+            removeBtn.classList.add('remove')
+            removeBtn.innerHTML="X"
+            userWrapper.append(removeBtn)
+        })
     }
 }
 
@@ -100,24 +100,14 @@ button.addEventListener('click', function (e) {
     const stateInput = document.querySelector('#stateInput')
 
     const newEntry = new UserEntry(addressInput.value, propTypeInput.value, cityInput.value, stateInput.value)
+
     const newList = new Listings()
 
     newList.addListing(newEntry)
+    newList.removeListing(newEntry)
     newList.render()
 
     // console.log(newEntry)
     // console.log(newList)
 })
-
-
-
-
-
-// masterListing.addListing(testUser)
-// console.log(masterListing)
-
-
-
-// event listerner. submit button. define a new entry.
-// const testUser = new UserEntry(inputfield.value, "Apt", "Brooklyn", "New York");
 

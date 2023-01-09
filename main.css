@@ -1,0 +1,18 @@
+li{
+    list-style: none;
+}
+
+ul{
+    background-color: grey;
+    padding: 5px;
+}
+
+.remove{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    height: 15px;
+    width: 15px;
+    border: solid 1px black;
+}
