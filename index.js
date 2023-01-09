@@ -51,6 +51,20 @@ class Listings {
             removeBtn.classList.add('remove')
             removeBtn.innerHTML="X"
             userWrapper.append(removeBtn)
+
+            removeBtn.addEventListener('click', function(){
+                const thisListing = document.querySelector('.listings')
+                userWrapper.remove()
+                console.log(userWrapper)
+                console.log(thisListing)
+
+                // for(let i = 0; i < thisListing.length; i++){
+                //     let thisEntry = thisListing[i]
+                //     console.log(thisListing)
+                //     thisEntry.remove()
+                //     // console.log(thisEntry)
+                // }
+            })
         })
     }
 }
