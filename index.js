@@ -1,29 +1,55 @@
 const listingsDiv = document.createElement('div')
+const body = document.querySelector('body')
 listingsDiv.classList.add('listings')
+body.appendChild(listingsDiv)
 
 
 class Listings {
     constructor(){
-        this.listing = [];
+        this.listArr = [];
     }
 
-    render() {
-        // this is simply rendering a div that will house each entry object
-        const listingsRender = document.createElement('div')
-        listingsRender.classList.add('listings_render')
-        listingsDiv.append(listingsRender)
-
-        return listingsRender
-    }
-
-    addListing() {
+    addListing(listing) {
         // going to push new entries into this.listing array
         // addListing should add new instances of UserEntry
-
+        this.listArr.push(listing)
     }
 
     removeListing() {
 
+    }
+
+    render() {
+        // this is simply rendering a div that will house each entry object
+        // create entry form
+        // add event listener on submit button
+        const ourList = this.listArr
+        ourList.map((obj)=>{
+            // const listingEntry = document.createElement('div')
+            // listingEntry.classList.add('listing_entry')
+            // listingEntry.append(obj)
+            // listingsDiv.appendChild(listingEntry)
+            const userWrapper = document.createElement('ul')
+            listingsDiv.appendChild(userWrapper)
+            // listingsDiv.append(userWrapper)
+    
+            const addressLi = document.createElement('li')
+            userWrapper.appendChild(addressLi)
+            addressLi.innerHTML = obj.address
+            const propTypeLi = document.createElement('li')
+            userWrapper.appendChild(propTypeLi)
+            propTypeLi.innerHTML = obj.propType
+            const cityLi = document.createElement('li')
+            userWrapper.appendChild(cityLi)
+            cityLi.innerHTML = obj.city
+            const stateLi = document.createElement('li')
+            userWrapper.appendChild(stateLi)
+            stateLi.innerHTML = obj.state
+    
+
+        })
+
+        // return listingsRender
     }
 }
 
@@ -57,8 +83,13 @@ class UserEntry {
 
 const testUser = new UserEntry("123 Street Lane", "Apt", "Brooklyn", "New York");
 
-testUser.render()
 console.log(testUser)
 
 const masterListing = new Listings
-document.body.append(masterListing.render())
+masterListing.addListing(testUser)
+console.log(masterListing)
+masterListing.render()
+
+// event listerner. submit button. define a new entry.
+// const testUser = new UserEntry(inputfield.value, "Apt", "Brooklyn", "New York");
+
