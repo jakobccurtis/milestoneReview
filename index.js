@@ -86,6 +86,19 @@ class UserEntry {
     }
 }
 
+const button = document.querySelector("#submitButton");
+button.addEventListener('click', function(e) {
+    e.preventDefault()
+    const newEntry = new UserEntry(addressInput.value, propTypeInput.value, cityInput.value, stateInput.value)
+    const addressInput = document.querySelector('#addressInput')
+    const propTypeInput = document.querySelector('#propTypeInput')
+    const cityInput = document.querySelector('#cityInput')
+    const stateInput = document.querySelector('#stateInput')
+    masterListing.addListing(newEntry)
+})
+
+
+
 const testUser = new UserEntry("123 Street Lane", "Apt", "Brooklyn", "New York");
 
 console.log(testUser)
@@ -94,6 +107,7 @@ const masterListing = new Listings
 masterListing.addListing(testUser)
 console.log(masterListing)
 masterListing.render()
+
 
 // event listerner. submit button. define a new entry.
 // const testUser = new UserEntry(inputfield.value, "Apt", "Brooklyn", "New York");
